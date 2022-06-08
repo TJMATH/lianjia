@@ -1,5 +1,4 @@
 import requests
-import yaml
 import logging
 import logging.handlers
 import colorlog
@@ -31,10 +30,10 @@ def set_logger(log_filename = LOG_FILENAME):
 
 logger = set_logger()
 
-def get_cookies():
+def get_cookies(cookie_str = ""):
     """解析cookies内容并添加到cookiesJar"""
     manual_cookies = {}
-    for item in COOKIE_STR.split(';'):
+    for item in cookie_str.split(';'):
         name, value = item.strip().split('=', 1)
         # 用=号分割，分割1次
         manual_cookies[name] = value
@@ -42,7 +41,7 @@ def get_cookies():
     cookiesJar = requests.utils.cookiejar_from_dict(manual_cookies, cookiejar=None, overwrite=True)
     return cookiesJar
 
-def get_session():
+def get_session(cookie_str = ""):
     # 初始化session
     session = requests.session()
     session.headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36",
@@ -53,5 +52,5 @@ def get_session():
     #                         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
     #                         "Connection": "keep-alive"}
     # 获取cookies保存到session
-    session.cookies = get_cookies()
+    session.cookies = get_cookies(cookie_str)
     return session

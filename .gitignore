@@ -1,3 +1,7 @@
 __pycache__
 *.pyc
 *.tsv
+*.log
+*.xlsx
+*.txt
+config.yml

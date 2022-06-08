@@ -1,9 +1,6 @@
 import os
-import sys
-import re
 import time
 import requests
-import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -33,8 +30,8 @@ class SpiderFactory():
 
 class BaseSpider():
     def __init__(self, config) -> None:
-        self.session = get_session()
         self.config = config
+        self.session = get_session(self.config.cookie_str)
         self.store = DDict({
             "houses": DDict(),             # {houseCode: house}
             "xiaoqus": DDict()             # {xiaoquCOde: xiaoqu}

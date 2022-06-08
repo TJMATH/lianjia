@@ -1,0 +1,7 @@
+bs4
+tqdm
+requests
+colorlog
+selenium
+pyyaml
+lxml
