@@ -3,5 +3,5 @@ __pycache__
 *.tsv
 *.log
 *.xlsx
-*.txt
+*.list
 config.yml
