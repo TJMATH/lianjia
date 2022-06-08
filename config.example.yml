@@ -1,0 +1,47 @@
+type: 'house' # house/xiaoqu/condition 给定房源url链接/小区url链接/搜索条件
+outputDir: './output' # 输出目录
+house:
+  inputFile: 'houseUrls.txt' # 房源url列表
+xiaoqu:
+  inputFile: 'xiaoquUrls.txt' # 小区url列表
+condition:
+  by: 'subway' # quyu/subway
+  quyu: # 输入区域的拼音即可 可多个
+    -
+      laoximen
+  subway: # 复数个地铁线路选择
+    -
+      line: "10号线" # 地铁线名称
+      station:      # 地铁站名称 多个
+        -
+          虹桥火车站
+          虹桥2号航站楼
+  rentWay: "整租" # 整租、合租、不限
+  rentPrice:
+    up: 9500
+    down: 7000
+  houseType:  # n(1,2,3,4)个卧室，可多选，最多4
+    -
+      2
+  size:  # 租房面积限制
+    up: 100
+    down: 0
+  direct: # 东 西 南 北 南北 可多选
+    -
+      东
+  brand: # 链家 自如
+    -
+      链家
+  features: # 近地铁 拎包入住 精装修 押一付一 双卫 新上 认证公寓 随时看房 VR房源 业主自荐
+    -
+      近地铁
+      拎包入住
+  rentDuration: # 月租 年租 一个月起租 1-3个月 4-6个月
+    -
+      月租
+  floor: # 低楼层 中楼层 高楼层
+    -
+      低楼层
+  lift: # 有电梯 无电梯
+    -
+      有电梯
